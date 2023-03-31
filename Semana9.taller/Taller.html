@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez Barrios">
+<meta name="dcterms.date" content="2023-03-31">
+
+<title>Taller. Visualización y análisis de figuras multivariadas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Taller_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Taller_files/libs/quarto-html/quarto.js"></script>
+<script src="Taller_files/libs/quarto-html/popper.min.js"></script>
+<script src="Taller_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Taller_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Taller_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Taller_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Taller_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Taller_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Taller_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#taller.-visualización-y-análisis-de-figuras-multivariadas" id="toc-taller.-visualización-y-análisis-de-figuras-multivariadas" class="nav-link active" data-scroll-target="#taller.-visualización-y-análisis-de-figuras-multivariadas">Taller. Visualización y análisis de figuras multivariadas</a>
+  <ul>
+  <li><a href="#cargar-las-librerías-requeridas" id="toc-cargar-las-librerías-requeridas" class="nav-link" data-scroll-target="#cargar-las-librerías-requeridas">Cargar las librerías requeridas</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller. Visualización y análisis de figuras multivariadas</h1>
+<p class="subtitle lead">Datos de colibríes del pacifico nariñense</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Javier Rodríguez Barrios </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 31, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="taller.-visualización-y-análisis-de-figuras-multivariadas" class="level1"><b style="color:#1f78b4;">
+<h1>Taller. Visualización y análisis de figuras multivariadas</h1>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+<p><strong>Objetivo de la actividad:</strong></p>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p>El presente taller se orienta a los temas relacionados con la visualización de datos multivariados, que servirá de base para los estudios de caso seleccionados por los estudiantes. Se requiere utilizar la base de datos: <strong>Datos_colibríes.xlsx</strong>.</p>
+<p>Como soporte de este ejercicio, se contará con las notas de clase del pasado taller de exploratorios <a href="https://javier-2712.github.io/Visualizacion/Semana6.Taller/Taller6.1.Explor.insectos.html">Taller6. Opciones Gráficas</a></p>
+<p><strong>1) Datos de colibríes</strong></p>
+<p>Los datos a analizar corresponden a mediciones realizadas a colibríes de la Sabana de Bogotá. Se midieron las características morfométricas de 130 individuos pertenecientes a 4 especies, midiéndose tanto individuos juveniles como adultos para cada una de las especies. Las variables morfométricas y resto de datos de la tabla entregada son:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Identificador del individuo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sxo</td>
+<td>Sexo</td>
+</tr>
+<tr class="even">
+<td>Abr</td>
+<td>Nombre abreviado de la especie</td>
+</tr>
+<tr class="odd">
+<td>Especie</td>
+<td>Nombre completo de la especie</td>
+</tr>
+<tr class="even">
+<td>Pso</td>
+<td>Peso de los individuos</td>
+</tr>
+<tr class="odd">
+<td>ExpC</td>
+<td>Culmen Expuesto</td>
+</tr>
+<tr class="even">
+<td>TotC</td>
+<td>Culmen Total</td>
+</tr>
+<tr class="odd">
+<td>AlLgo</td>
+<td>Largo del Ala</td>
+</tr>
+<tr class="even">
+<td>AlAnc</td>
+<td>Ancho del Ala</td>
+</tr>
+<tr class="odd">
+<td>AlArea</td>
+<td>Área del Ala</td>
+</tr>
+</tbody>
+</table>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="cargar-las-librerías-requeridas" class="level2 unnumbered"><b style="color:#1f78b4;">
+<h2 class="unnumbered anchored" data-anchor-id="cargar-las-librerías-requeridas">Cargar las librerías requeridas</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><strong>Requerimientos:</strong></p>
+<ol type="1">
+<li><p>Identificar cuáles son las <strong>observaciones</strong>, los <strong>factores</strong> y las <strong>variables</strong>.</p></li>
+<li><p>Plantear una <strong>hipótesis</strong> para la relación entre variables y otra para la variación de estas por sexos y por tipos de especies.</p></li>
+<li><p>Crear una tabla en la que se determinen los <strong>promedios</strong> y otra de <strong>desviaciones</strong> de Pso, ExpC y TotC, por sexos y por especies.</p></li>
+<li><p>Realizar <strong>figuras con promedios y desviaciones</strong> de Pso, ExpC y TotC por sexos y por especies. Redactar la leyenda de la figura y analizar los resultados.</p></li>
+<li><p>Realizar <strong>figuras en RMarkdown</strong>, que <strong>relacione</strong> a las parejas de variables. Redactar la leyenda y analizar el patrón observado.</p></li>
+<li><p>Realizar <strong>figuras en RMarkdown</strong>, que evalúen las <strong>diferencias</strong> de las variables por tipos de sexos y por especies. Redactar la leyenda y analizar el patrón observado.</p></li>
+<li><p>Entregar los resultados en un documento html de “RMarkdown” o de “quarto”.</p></li>
+<li><p>Realizar este mismo procedimiento con las bases de datos seleccionadas para los <strong>estudios de caso</strong>.</p></li>
+</ol>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
