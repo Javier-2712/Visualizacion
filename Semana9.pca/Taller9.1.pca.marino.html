@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Javier Rodríguez Barrios">
-<meta name="dcterms.date" content="2023-04-13">
+<meta name="dcterms.date" content="2023-04-14">
 
 <title>Taller 9.1 Análisis de Componentes Principales - PCA</title>
 <style>
@@ -113,16 +113,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#ejemplo-de-bahías-de-santa-marta" id="toc-ejemplo-de-bahías-de-santa-marta" class="nav-link active" data-scroll-target="#ejemplo-de-bahías-de-santa-marta">Ejemplo de bahías de Santa Marta</a></li>
   <li><a href="#exploración-gráfica" id="toc-exploración-gráfica" class="nav-link" data-scroll-target="#exploración-gráfica">Exploración Gráfica</a></li>
-  <li><a href="#pca-con-el-paquete-stats-pca1" id="toc-pca-con-el-paquete-stats-pca1" class="nav-link" data-scroll-target="#pca-con-el-paquete-stats-pca1">1) PCA con el paquete stats (pca1)</a></li>
-  <li><a href="#pca-con-el-paquete-factominer" id="toc-pca-con-el-paquete-factominer" class="nav-link" data-scroll-target="#pca-con-el-paquete-factominer">2) PCA con el paquete FactoMiner</a></li>
-  <li><a href="#pca-con-el-paquete-vegan" id="toc-pca-con-el-paquete-vegan" class="nav-link" data-scroll-target="#pca-con-el-paquete-vegan">3) PCA con el paquete vegan</a></li>
-  <li><a href="#taller-en-casa" id="toc-taller-en-casa" class="nav-link" data-scroll-target="#taller-en-casa"><strong>Taller en casa</strong></a></li>
-  <li><a href="#pca-por-tipos-con-la-función-dudi.pca-del-paquete-ade4" id="toc-pca-por-tipos-con-la-función-dudi.pca-del-paquete-ade4" class="nav-link" data-scroll-target="#pca-por-tipos-con-la-función-dudi.pca-del-paquete-ade4">5) PCA por tipos con la función “dudi.pca” del paquete ade4</a></li>
-  <li><a href="#pca-con-paquete-ggplot2" id="toc-pca-con-paquete-ggplot2" class="nav-link" data-scroll-target="#pca-con-paquete-ggplot2">6) PCA con paquete ggplot2</a>
+  <li><a href="#pca-con-paquete-factoextra" id="toc-pca-con-paquete-factoextra" class="nav-link" data-scroll-target="#pca-con-paquete-factoextra">1) PCA con paquete factoextra</a>
   <ul class="collapse">
-  <li><a href="#coordenadas-de-los-sitios-y-el-factor-coord.sit" id="toc-coordenadas-de-los-sitios-y-el-factor-coord.sit" class="nav-link" data-scroll-target="#coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>6.1 Coordenadas de los sitios y el factor “coord.sit”</strong></a></li>
-  <li><a href="#coordenadas-de-las-variables-ambientales-coord.amb" id="toc-coordenadas-de-las-variables-ambientales-coord.amb" class="nav-link" data-scroll-target="#coordenadas-de-las-variables-ambientales-coord.amb"><strong>6.2 Coordenadas de las variables ambientales “coord.amb”</strong></a></li>
-  <li><a href="#figura-con-de-elipses-por-concavidades---geom_mark_hull" id="toc-figura-con-de-elipses-por-concavidades---geom_mark_hull" class="nav-link" data-scroll-target="#figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>6.4 Figura con de elipses por concavidades - geom_mark_hull</strong></a></li>
+  <li><a href="#contribución-eje-1" id="toc-contribución-eje-1" class="nav-link" data-scroll-target="#contribución-eje-1"><strong>1.1) Contribución eje 1</strong></a></li>
+  <li><a href="#escala-de-contribuciones-de-las-observaciones-y-las-variables" id="toc-escala-de-contribuciones-de-las-observaciones-y-las-variables" class="nav-link" data-scroll-target="#escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>1.3) Escala de contribuciones de las observaciones y las variables</strong></a></li>
+  </ul></li>
+  <li><a href="#pca-con-paquete-ggplot2" id="toc-pca-con-paquete-ggplot2" class="nav-link" data-scroll-target="#pca-con-paquete-ggplot2">2) PCA con paquete ggplot2</a>
+  <ul class="collapse">
+  <li><a href="#coordenadas-de-los-sitios-y-el-factor-coord.sit" id="toc-coordenadas-de-los-sitios-y-el-factor-coord.sit" class="nav-link" data-scroll-target="#coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>2.1 Coordenadas de los sitios y el factor “coord.sit”</strong></a></li>
+  <li><a href="#coordenadas-de-las-variables-ambientales-coord.amb" id="toc-coordenadas-de-las-variables-ambientales-coord.amb" class="nav-link" data-scroll-target="#coordenadas-de-las-variables-ambientales-coord.amb"><strong>2.2 Coordenadas de las variables ambientales “coord.amb”</strong></a></li>
+  <li><a href="#figura-con-de-elipses-por-concavidades---geom_mark_hull" id="toc-figura-con-de-elipses-por-concavidades---geom_mark_hull" class="nav-link" data-scroll-target="#figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>2.3 Figura con de elipses por concavidades - geom_mark_hull</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -151,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 13, 2023</p>
+      <p class="date">April 14, 2023</p>
     </div>
   </div>
   
@@ -181,14 +181,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LIBRERÍAS REQUERIDAS</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)   <span class="co"># Para el PCA</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rlang)        <span class="co"># </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)   <span class="co"># Para el PCA</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)        <span class="co"># Para el PCA</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ade4)         <span class="co"># Para el PCA</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)     <span class="co"># Figuras de elipses</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)      <span class="co"># Figuras de dispersión</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(concaveman)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)     <span class="co"># Figuras de elipses</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)      <span class="co"># Figuras de dispersión</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(concaveman)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lectura de la base de datos "FQmarino"</span></span>
@@ -272,301 +270,84 @@ CapaFotica -0.77  0.61     0.01  0.97      0.02       1.00    0.56</code></pre>
 </div>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
 </b></section><b style="color:#1f78b4;">
-</b><section id="pca-con-el-paquete-stats-pca1" class="level1"><b style="color:#1f78b4;">
-<h1>1) PCA con el paquete stats (pca1)</h1>
+</b><section id="pca-con-paquete-factoextra" class="level1"><b style="color:#1f78b4;">
+<h1>1) PCA con paquete factoextra</h1>
 </b><p><b style="color:#1f78b4;"></b></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pca1 <span class="ot">&lt;-</span> <span class="fu">princomp</span>(datos[<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>],<span class="at">cor=</span><span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>1.1) Valores propios</strong> - <code>autovalores</code> para medir el ajuste del PCA </b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pca1 <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(datos[<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>],<span class="at">scale.=</span>T)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
-                          Comp.1    Comp.2    Comp.3    Comp.4     Comp.5
-Standard deviation     1.8454563 1.1063340 0.9919952 0.9474050 0.68078731
-Proportion of Variance 0.4865298 0.1748536 0.1405792 0.1282252 0.06621019
-Cumulative Proportion  0.4865298 0.6613834 0.8019626 0.9301878 0.99639798
-                            Comp.6 Comp.7
-Standard deviation     0.158789715      0
-Proportion of Variance 0.003602025      0
-Cumulative Proportion  1.000000000      1</code></pre>
+                          PC1    PC2    PC3    PC4     PC5    PC6       PC7
+Standard deviation     1.8455 1.1063 0.9920 0.9474 0.68079 0.1588 9.417e-16
+Proportion of Variance 0.4865 0.1749 0.1406 0.1282 0.06621 0.0036 0.000e+00
+Cumulative Proportion  0.4865 0.6614 0.8020 0.9302 0.99640 1.0000 1.000e+00</code></pre>
 </div>
 </div>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>1.2) Insumos del pca (names)</strong> </b></p>
+</b><section id="contribución-eje-1" class="level3"><b style="color:#d95f02;">
+<h3 class="anchored" data-anchor-id="contribución-eje-1"><strong>1.1) Contribución eje 1</strong></h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>La <a href="#fig-fig4">Figura&nbsp;4</a> muestra las contribuciones de cada variable ambiental al pca.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pca1)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "sdev"     "loadings" "center"   "scale"    "n.obs"    "scores"   "call"    </code></pre>
-</div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>1.3) Valores propios</strong> - <code>autovectores</code> y <code>escores</code> </b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pca1<span class="sc">$</span>loadings,<span class="dv">2</span>)   <span class="co"># Autoectores (loadings)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Loadings:
-           Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7
-pH          0.43          0.42   0.18   0.61   0.20   0.45 
-Cond       -0.36          0.16   0.74   0.27  -0.35  -0.32 
-Turbidez          -0.65   0.62         -0.41   0.11        
-Temp       -0.52   0.21                        0.81  -0.10 
-Salinidad   0.13   0.67   0.60  -0.11  -0.29  -0.13  -0.26 
-CapaFotica -0.52   0.25                -0.13  -0.29   0.75 
-Oxigeno    -0.35  -0.15   0.24  -0.63   0.53  -0.25  -0.22 
-
-               Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7
-SS loadings     1.003  1.006  1.010  0.992  1.003  0.994  1.002
-Proportion Var  0.143  0.144  0.144  0.142  0.143  0.142  0.143
-Cumulative Var  0.143  0.287  0.431  0.573  0.716  0.858  1.001</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(pca1<span class="sc">$</span>scores,<span class="dv">2</span>)     <span class="co"># Coordenadas de las localidades (Scores)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7
-Taganga     -1.55  -0.34   0.14   0.85  -1.34   0.11      0
-PtaBetin    -1.80   1.54  -0.97   0.67   0.36  -0.19      0
-Monohuaca   -2.77  -0.36   0.84  -1.20   0.63   0.11      0
-Granate      0.93  -1.34  -0.27  -0.96  -0.41  -0.27      0
-P.Grande     1.67   0.05  -1.70  -0.52   0.16   0.22      0
-Rodadero     1.19  -1.20   0.58   1.53   0.82   0.01      0
-Aeropuerto   2.33   1.64   1.38  -0.36  -0.22   0.01      0</code></pre>
-</div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>1.4) Contribución de los ejes del pca</strong> </b></p>
-<p>La <a href="#fig-fig4">Figura&nbsp;4</a> muestra la manera de graficar a la varinza que captura cada componente principal.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">screeplot</span>(pca1,<span class="at">ylab=</span><span class="st">"Varianza"</span>,<span class="at">main=</span><span class="st">""</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex.lab=</span><span class="fl">1.5</span>, <span class="at">col=</span><span class="st">"lightblue"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>(<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pca1,<span class="at">choice=</span><span class="st">"var"</span>,<span class="at">axes=</span><span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-fig4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig4-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;4: Varianza capturada o representada por cada componente principal.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;4: Contribuciones de las variables ambientales.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>1.5) Opciones de <code>biplot</code>, por combinaciones de ejes.</strong> </b></p>
-<p>La <a href="#fig-fig5">Figura&nbsp;5</a> muestra la ordenación de las locaidades y las variables ambientales en las 7 bahías evaluadas (gráfico de biplot).</p>
+</b><section id="elipses-por-cada-grupo" class="level4"><b style="color:#d95f02;">
+<h4 class="anchored" data-anchor-id="elipses-por-cada-grupo"><strong>1.2) Elipses por cada grupo</strong></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>La <a href="#fig-fig5">Figura&nbsp;5</a> muestra la ordenación de las localidades por cada Grupo de localidades.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca1,<span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">cex=</span><span class="fl">0.9</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>,<span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="dv">4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca1, <span class="at">geom.ind =</span> <span class="st">"point"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.ind =</span> datos<span class="sc">$</span>Grupo,   <span class="co"># Colores por grupo - periodo</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="st">"Groups"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig5-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;5: Figura del “Biplot” del análisis de componentes principales.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;5: Odenación por cada Grupo de localidades.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Otras opciones de pca por combinaciones de ejes</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca1,<span class="at">choices =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">cex=</span><span class="fl">0.9</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca1,<span class="at">choices =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">cex=</span><span class="fl">0.9</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></section><b style="color:#1f78b4;">
-</b><section id="pca-con-el-paquete-factominer" class="level1"><b style="color:#1f78b4;">
-<h1>2) PCA con el paquete FactoMiner</h1>
-</b><p><b style="color:#1f78b4;"></b></p>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>2.1) Inserción de las variables al PCA</strong> </b></p>
+</b></section><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="escala-de-contribuciones-de-las-observaciones-y-las-variables" class="level3"><b style="color:#d95f02;">
+<h3 class="anchored" data-anchor-id="escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>1.3) Escala de contribuciones de las observaciones y las variables</strong></h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>La <a href="#fig-fig6">Figura&nbsp;6</a> muestra las contribuciones de cada variable ambiental al pca.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertar las variables al PCA</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Grupo"      "pH"         "Cond"       "Turbidez"   "Temp"      
-[6] "Salinidad"  "CapaFotica" "Oxigeno"   </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>datos.PCA<span class="ot">&lt;-</span>datos[, <span class="fu">c</span>(<span class="st">"pH"</span>, <span class="st">"Cond"</span>, <span class="st">"Turbidez"</span>, <span class="st">"Temp"</span>, <span class="st">"Salinidad"</span>,</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"CapaFotica"</span>, <span class="st">"Oxigeno"</span>)]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>2.1) PCA con escalamiento de las variables</strong> (similar a la matriz de correlación) </b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realización del pca con la librería FactoMiner           </span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pca2<span class="ot">&lt;-</span><span class="fu">PCA</span>(datos.PCA , <span class="at">scale.unit=</span><span class="cn">TRUE</span>, <span class="at">ncp=</span><span class="dv">5</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>2.2) Figura del PCA</strong> </b></p>
-<p>La <a href="#fig-fig6">Figura&nbsp;6</a> muestra la ordenación de las locaidades en las 7 bahías evaluadas (gráfico de biplot).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figura del pca realizado (grafica de observaciones)</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(pca2, <span class="at">axes=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">choix=</span><span class="st">"ind"</span>, <span class="at">habillage=</span><span class="st">"none"</span>, <span class="at">col.ind=</span><span class="st">"black"</span>, </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">col.ind.sup=</span><span class="st">"blue"</span>, <span class="at">col.quali=</span><span class="st">"magenta"</span>, </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">label=</span><span class="fu">c</span>(<span class="st">"ind"</span>, <span class="st">"ind.sup"</span>, <span class="st">"quali"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca1, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones (Sitios)                </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">geom.ind =</span> <span class="st">"point"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill.ind =</span> datos<span class="sc">$</span>Grupo, <span class="at">col.ind =</span> <span class="st">"black"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">pointshape =</span> <span class="dv">21</span>, <span class="at">pointsize =</span> <span class="dv">2</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">addEllipses =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.var =</span> <span class="st">"contrib"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="st">"RdYlBu"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title =</span> <span class="fu">list</span>(<span class="at">fill =</span> <span class="st">"Epocas"</span>, <span class="at">color =</span> <span class="st">"Contrib"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">alpha =</span> <span class="st">"Contrib"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig6-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;6: Figura del “Plot” del análisis de componentes principales.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>2.3) Circulo de contribuciones de las variables</strong> </b></p>
-<p>La <a href="#fig-fig7">Figura&nbsp;7</a> muestra el circulo de contribuciones para identificar a las variables con mayor aporte por cada componente principal del análisis.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Circulo de contribuciones</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.PCA</span>(pca2, <span class="at">axes=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">choix=</span><span class="st">"var"</span>, <span class="at">col.var=</span><span class="st">"#ff0000"</span>, <span class="at">new.plot=</span>T,</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">col.quanti.sup=</span><span class="st">"blue"</span>, <span class="at">label=</span><span class="fu">c</span>(<span class="st">"var"</span>, <span class="st">"quanti.sup"</span>), <span class="at">lim.cos2.var=</span><span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig7-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;7: Figura del circuo de contribuciones del PCA.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>2.4) Selección de variables a partir del PCA</strong> </b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables con mayor aporte al PC1</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>dimdesc<span class="ot">=</span><span class="fu">dimdesc</span>(pca2, <span class="at">axes=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(dimdesc<span class="sc">$</span>Dim<span class="fl">.1</span><span class="sc">$</span>quanti,<span class="dv">4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           correlation p.value
-Temp            0.9594  0.0006
-CapaFotica      0.9564  0.0007
-pH             -0.7899  0.0346</code></pre>
-</div>
-</div>
-<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></section><b style="color:#1f78b4;">
-</b><section id="pca-con-el-paquete-vegan" class="level1"><b style="color:#1f78b4;">
-<h1>3) PCA con el paquete vegan</h1>
-</b><p><b style="color:#1f78b4;"></b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Realización del pca</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>pca3 <span class="ot">&lt;-</span> <span class="fu">rda</span>(datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)], <span class="at">scale =</span> <span class="cn">TRUE</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>3.1) Insumos del análisis</strong> </b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insumos del pca</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pca3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-rda(X = datos[, c(2:8)], scale = TRUE) 
-
-Partitioning of correlations:
-              Inertia Proportion
-Total               7          1
-Unconstrained       7          1
-
-Eigenvalues, and their contribution to the correlations 
-
-Importance of components:
-                         PC1    PC2    PC3    PC4     PC5      PC6
-Eigenvalue            3.4057 1.2240 0.9841 0.8976 0.46347 0.025214
-Proportion Explained  0.4865 0.1749 0.1406 0.1282 0.06621 0.003602
-Cumulative Proportion 0.4865 0.6614 0.8020 0.9302 0.99640 1.000000
-
-Scaling 2 for species and site scores
-* Species are scaled proportional to eigenvalues
-* Sites are unscaled: weighted dispersion equal on all dimensions
-* General scaling constant of scores:  2.54573 
-
-
-Species scores
-
-               PC1      PC2      PC3      PC4      PC5      PC6
-pH          0.7600 -0.05946 -0.39634  0.16779  0.39815 -0.03017
-Cond       -0.6409  0.03919 -0.15521  0.67510  0.17577  0.05298
-Turbidez   -0.1626  0.69132 -0.59117  0.02172 -0.26687 -0.01640
-Temp       -0.9231 -0.21981 -0.06696  0.04433  0.05922 -0.12436
-Salinidad   0.2220 -0.71203 -0.56910 -0.09845 -0.18854  0.02044
-CapaFotica -0.9203 -0.26095 -0.03157 -0.01094 -0.08801  0.04456
-Oxigeno    -0.6245  0.16367 -0.22590 -0.57864  0.34878  0.03860
-
-
-Site scores (weighted sums of species scores)
-
-               PC1      PC2     PC3     PC4     PC5      PC6
-Taganga    -0.8103  0.29431 -0.1336  0.8605 -1.8923 -0.68752
-PtaBetin   -0.9363 -1.34295  0.9378  0.6784  0.5141  1.12733
-Monohuaca  -1.4457  0.31382 -0.8173 -1.2159  0.8964 -0.64531
-Granate     0.4866  1.16512  0.2621 -0.9789 -0.5863  1.60931
-P.Grande    0.8705 -0.04719  1.6534 -0.5317  0.2280 -1.31394
-Rodadero    0.6186  1.04517 -0.5617  1.5570  1.1561 -0.05927
-Aeropuerto  1.2166 -1.42828 -1.3407 -0.3694 -0.3161 -0.03060</code></pre>
-</div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>3.2) Autovalores</strong> </b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste del pca</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>((ev <span class="ot">&lt;-</span> pca3<span class="sc">$</span>CA<span class="sc">$</span>eig),<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> PC1  PC2  PC3  PC4  PC5  PC6 
-3.41 1.22 0.98 0.90 0.46 0.03 </code></pre>
-</div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>3.3) Figura del PCA</strong> </b></p>
-<p>La <a href="#fig-fig8">Figura&nbsp;8</a> muestra dos opciones de visualizar los resultados del pca “<code>scaling 1</code>” y “<code>scaling 2</code>”.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Panel con dos figuras del pca</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>(<span class="dv">12</span>,<span class="dv">6</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca3, <span class="at">scaling=</span><span class="dv">1</span>, <span class="at">main=</span><span class="st">"PCA - scaling 1"</span>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(pca3, <span class="at">main=</span><span class="st">"PCA - scaling 2"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="fig-fig8" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig8-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;8: dos copciones de figuras del PCA - “scaling 1” y “scaling 2”.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>#— <b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></section><b style="color:#1f78b4;">
-</b><section id="taller-en-casa" class="level1"><b style="color:#1f78b4;">
-<h1><strong>Taller en casa</strong></h1>
-</b><p><b style="color:#1f78b4;"></b></p>
-<p>Realizar el cálculo del los siguientes insumos de la página 126 a 127, del libro <a href="https://www.editdiazdesantos.com/libros/9788490524817/Rodr%C3%ADguez-Barrios-An%C3%A1lisis-de-datos-ecol%C3%B3gicos-y-ambientales-aplicaciones-con-el-programa-R.html?isbn=978849052481">Análisis de datos ecológicos y ambientales: Aplicaciones con el programa R</a> el cual se encuentra en la biblioteca.</p>
-<ul>
-<li><p>Ajuste de los componentes principales.</p></li>
-<li><p>Figura de atovalores</p></li>
-<li><ol type="a">
-<li>Figura del modelo de Kaiser</li>
-</ol></li>
-<li><ol start="2" type="a">
-<li>Figura del modelo de Vara Quebrada</li>
-</ol></li>
-</ul>
-<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
-</b></section><b style="color:#1f78b4;">
-</b><section id="pca-por-tipos-con-la-función-dudi.pca-del-paquete-ade4" class="level1"><b style="color:#1f78b4;">
-<h1>5) PCA por tipos con la función “dudi.pca” del paquete ade4</h1>
-</b><p><b style="color:#1f78b4;"></b></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>pca5 <span class="ot">&lt;-</span> <span class="fu">dudi.pca</span>(datos[,<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>)],<span class="at">scannf=</span>F,<span class="at">nf=</span><span class="dv">2</span>,<span class="at">scale=</span>T)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><p><b style="color:#d95f02;"><strong>5.1) Figuras del pca por tipo de grupo</strong> </b></p>
-<p>La <a href="#fig-fig9">Figura&nbsp;9</a> muestra el agrupamiento por líneas en el pca.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>Grupo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(datos<span class="sc">$</span>Grupo)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">s.class</span>(pca5<span class="sc">$</span>li,datos<span class="sc">$</span>Grupo, <span class="at">cell =</span> <span class="dv">0</span>, <span class="at">cstar =</span> <span class="fl">0.5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="fig-fig9" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig9-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;9: agrupamiento por líneas en el PCA.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;6: Contribuciones de las variables ambientales.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -574,14 +355,15 @@ Aeropuerto  1.2166 -1.42828 -1.3407 -0.3694 -0.3161 -0.03060</code></pre>
 <p>#—-</p>
 <p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
 </b></section><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
 </b><section id="pca-con-paquete-ggplot2" class="level1"><b style="color:#1f78b4;">
-<h1>6) PCA con paquete ggplot2</h1>
+<h1>2) PCA con paquete ggplot2</h1>
 </b><p><b style="color:#1f78b4;"></b></p>
-<p>Realización pca de los paquetes factoextra y ggbiplot Para gererar las coordenadas de los sitios y taxones</p>
+<p>Realización pca de del paquete “vegan” para gererar las coordenadas de los sitios y las variables ambientales.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevamente el pca</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>pca6 <span class="ot">&lt;-</span> <span class="fu">rda</span>(datos[<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>],<span class="at">scale=</span><span class="cn">TRUE</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">summary</span>(pca6))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevamente el pca, pero con la librería vegan.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pca2 <span class="ot">&lt;-</span> <span class="fu">rda</span>(datos[<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>],<span class="at">scale=</span><span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">summary</span>(pca2))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "species"     "sites"       "call"        "tot.chi"     "unconst.chi"
  [6] "cont"        "scaling"     "digits"      "inertia"     "method"     </code></pre>
@@ -589,13 +371,13 @@ Aeropuerto  1.2166 -1.42828 -1.3407 -0.3694 -0.3161 -0.03060</code></pre>
 </div>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
 </b><section id="coordenadas-de-los-sitios-y-el-factor-coord.sit" class="level3"><b style="color:#d95f02;">
-<h3 class="anchored" data-anchor-id="coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>6.1 Coordenadas de los sitios y el factor “coord.sit”</strong></h3>
+<h3 class="anchored" data-anchor-id="coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>2.1 Coordenadas de los sitios y el factor “coord.sit”</strong></h3>
 </b><p><b style="color:#d95f02;"></b></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca6)<span class="sc">$</span><span class="st">"sites"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Coordenadas de los sitios</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)      <span class="co"># Crear una columna con nombres de los sitios</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos<span class="sc">$</span>Grupo               <span class="co"># Adicionar columna  por Grupos</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)                             <span class="co"># vista resumida de las coordenadas de sitios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca2)<span class="sc">$</span><span class="st">"sites"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Coordenadas de los sitios</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)      <span class="co"># Crear una columna con nombres de los sitios</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos<span class="sc">$</span>Grupo               <span class="co"># Adicionar columna  por Grupos</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)                             <span class="co"># vista resumida de las coordenadas de sitios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 PC1         PC2     sitio grp
 Taganga   -0.8103355  0.29431456   Taganga   A
@@ -609,12 +391,12 @@ Rodadero   0.6186489  1.04517307  Rodadero   B</code></pre>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
 </b></section><b style="color:#d95f02;">
 </b><section id="coordenadas-de-las-variables-ambientales-coord.amb" class="level3"><b style="color:#d95f02;">
-<h3 class="anchored" data-anchor-id="coordenadas-de-las-variables-ambientales-coord.amb"><strong>6.2 Coordenadas de las variables ambientales “coord.amb”</strong></h3>
+<h3 class="anchored" data-anchor-id="coordenadas-de-las-variables-ambientales-coord.amb"><strong>2.2 Coordenadas de las variables ambientales “coord.amb”</strong></h3>
 </b><p><b style="color:#d95f02;"></b></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca6)<span class="sc">$</span><span class="st">"species"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Dos primeros ejes</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>var.amb. <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las variables ambientales</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca2)<span class="sc">$</span><span class="st">"species"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Dos primeros ejes</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>var.amb. <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las variables ambientales</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  PC1         PC2   var.amb.
 pH          0.7600032 -0.05945541         pH
@@ -628,43 +410,43 @@ CapaFotica -0.9202592 -0.26095002 CapaFotica</code></pre>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
 </b></section><b style="color:#d95f02;">
 </b><section id="figura-con-de-elipses-por-concavidades---geom_mark_hull" class="level3"><b style="color:#d95f02;">
-<h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>6.4 Figura con de elipses por concavidades - geom_mark_hull</strong></h3>
+<h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>2.3 Figura con de elipses por concavidades - geom_mark_hull</strong></h3>
 </b><p><b style="color:#d95f02;"></b></p>
-<p>La <a href="#fig-fig10">Figura&nbsp;10</a> muestra la ordenación de las localidades, las variables ambientales y los grupos de localidades.</p>
+<p>La <a href="#fig-fig7">Figura&nbsp;7</a> muestra la ordenación de las localidades, las variables ambientales y los grupos de localidades.</p>
 <div class="cell" data-fig.format="png">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>(<span class="dv">6</span>,<span class="dv">6</span>)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Taxones  *valores de cero para caracteres de las flechas (arrow)</span></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor</span></span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp,</span>
-<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colour=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
-<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
-<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
-<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>(<span class="dv">6</span>,<span class="dv">6</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Variables ambientales </span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor - grupos de localidades</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colour=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig10" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig10-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;10: Ordenación de las localidades, los taxones y los periodos climáticos.</figcaption><p></p>
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig7-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;7: Ordenación de las localidades, las variables ambientales y los Grupos de localidades.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p><strong>Nota</strong> Probar la capa de factor con otras opciones de agrupamiento como esta:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_polygon</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_polygon</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -803,7 +585,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.quarto\.org\/custom/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
@@ -812,8 +594,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
           // default icon
           link.classList.add("external");
       }
