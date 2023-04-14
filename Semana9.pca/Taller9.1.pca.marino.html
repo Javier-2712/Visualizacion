@@ -116,13 +116,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#pca-con-paquete-factoextra" id="toc-pca-con-paquete-factoextra" class="nav-link" data-scroll-target="#pca-con-paquete-factoextra">1) PCA con paquete factoextra</a>
   <ul class="collapse">
   <li><a href="#contribución-eje-1" id="toc-contribución-eje-1" class="nav-link" data-scroll-target="#contribución-eje-1"><strong>1.1) Contribución eje 1</strong></a></li>
-  <li><a href="#escala-de-contribuciones-de-las-observaciones-y-las-variables" id="toc-escala-de-contribuciones-de-las-observaciones-y-las-variables" class="nav-link" data-scroll-target="#escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>1.3) Escala de contribuciones de las observaciones y las variables</strong></a></li>
+  <li><a href="#escala-de-contribuciones-de-las-observaciones-y-las-variables" id="toc-escala-de-contribuciones-de-las-observaciones-y-las-variables" class="nav-link" data-scroll-target="#escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>1.5) Escala de contribuciones de las observaciones y las variables</strong></a></li>
   </ul></li>
   <li><a href="#pca-con-paquete-ggplot2" id="toc-pca-con-paquete-ggplot2" class="nav-link" data-scroll-target="#pca-con-paquete-ggplot2">2) PCA con paquete ggplot2</a>
   <ul class="collapse">
   <li><a href="#coordenadas-de-los-sitios-y-el-factor-coord.sit" id="toc-coordenadas-de-los-sitios-y-el-factor-coord.sit" class="nav-link" data-scroll-target="#coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>2.1 Coordenadas de los sitios y el factor “coord.sit”</strong></a></li>
   <li><a href="#coordenadas-de-las-variables-ambientales-coord.amb" id="toc-coordenadas-de-las-variables-ambientales-coord.amb" class="nav-link" data-scroll-target="#coordenadas-de-las-variables-ambientales-coord.amb"><strong>2.2 Coordenadas de las variables ambientales “coord.amb”</strong></a></li>
-  <li><a href="#figura-con-de-elipses-por-concavidades---geom_mark_hull" id="toc-figura-con-de-elipses-por-concavidades---geom_mark_hull" class="nav-link" data-scroll-target="#figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>2.3 Figura con de elipses por concavidades - geom_mark_hull</strong></a></li>
+  <li><a href="#ordenación-de-las-localidades" id="toc-ordenación-de-las-localidades" class="nav-link" data-scroll-target="#ordenación-de-las-localidades">**2.3 Ordenación de las localidades</a></li>
+  <li><a href="#ordenación-de-las-localidades-y-las-variables-ambientales" id="toc-ordenación-de-las-localidades-y-las-variables-ambientales" class="nav-link" data-scroll-target="#ordenación-de-las-localidades-y-las-variables-ambientales">**2.4 Ordenación de las localidades y las variables ambientales</a></li>
+  <li><a href="#ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos" id="toc-ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos" class="nav-link" data-scroll-target="#ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos">**2.4 Ordenación de las localidades, las variables ambientales y los grupos</a></li>
+  <li><a href="#ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos-1" id="toc-ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos-1" class="nav-link" data-scroll-target="#ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos-1">**2.5 Ordenación de las localidades, las variables ambientales y los grupos</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -302,22 +305,66 @@ Cumulative Proportion  0.4865 0.6614 0.8020 0.9302 0.99640 1.0000 1.000e+00</cod
 </div>
 </div>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
-</b><section id="elipses-por-cada-grupo" class="level4"><b style="color:#d95f02;">
-<h4 class="anchored" data-anchor-id="elipses-por-cada-grupo"><strong>1.2) Elipses por cada grupo</strong></h4>
+</b><section id="ordenación-de-las-localidades-y-variables-ambientales" class="level4"><b style="color:#d95f02;">
+<h4 class="anchored" data-anchor-id="ordenación-de-las-localidades-y-variables-ambientales"><strong>1.2) Ordenación de las localidades y variables ambientales</strong></h4>
 </b><p><b style="color:#d95f02;"></b></p>
 <p>La <a href="#fig-fig5">Figura&nbsp;5</a> muestra la ordenación de las localidades por cada Grupo de localidades.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca1, <span class="at">geom.ind =</span> <span class="st">"point"</span>, </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.ind =</span> datos<span class="sc">$</span>Grupo,   <span class="co"># Colores por grupo - periodo</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="st">"Groups"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca1, <span class="at">repel =</span> <span class="cn">TRUE</span>,  <span class="co"># repel quita el solapamiento en la figura.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.var =</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Color de las variables</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">col.ind =</span> <span class="st">"#696969"</span>, <span class="co"># Color de las observaciones</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">title =</span> <span class="st">"PCA - Bilot"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-fig5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig5-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;5: Odenación por cada Grupo de localidades.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;5: Odenación general del PCA.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="elipses-por-cada-grupo" class="level4"><b style="color:#d95f02;">
+<h4 class="anchored" data-anchor-id="elipses-por-cada-grupo"><strong>1.3) Elipses por cada grupo</strong></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>La <a href="#fig-fig6">Figura&nbsp;6</a> muestra la ordenación de las localidades por cada Grupo de localidades.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca1, <span class="at">geom.ind =</span> <span class="st">"point"</span>, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">col.ind =</span> datos<span class="sc">$</span>Grupo,   <span class="co"># Colores por grupo - periodo</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#FC4E07"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"confidence"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="st">"Groups"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig6-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;6: Odenación por cada Grupo de localidades.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="figuras-convexas-por-cada-grupo" class="level4"><b style="color:#d95f02;">
+<h4 class="anchored" data-anchor-id="figuras-convexas-por-cada-grupo"><strong>1.4) Figuras convexas por cada grupo</strong></h4>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>La <a href="#fig-fig7">Figura&nbsp;7</a> muestra la ordenación de las localidades por cada Grupo de localidades.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(pca1, <span class="at">geom.ind =</span> <span class="st">"point"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.ind =</span> datos<span class="sc">$</span>Grupo, <span class="co"># Colores por periodo</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">addEllipses =</span> <span class="cn">TRUE</span>, <span class="at">ellipse.type =</span> <span class="st">"convex"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">legend.title =</span> <span class="st">"Grupos"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">title =</span> <span class="st">"PCA - Plot"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig7-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;7: Odenación por cada Grupo de localidades.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -326,28 +373,28 @@ Cumulative Proportion  0.4865 0.6614 0.8020 0.9302 0.99640 1.0000 1.000e+00</cod
 </b></section><b style="color:#d95f02;">
 </b></section><b style="color:#d95f02;">
 </b><section id="escala-de-contribuciones-de-las-observaciones-y-las-variables" class="level3"><b style="color:#d95f02;">
-<h3 class="anchored" data-anchor-id="escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>1.3) Escala de contribuciones de las observaciones y las variables</strong></h3>
+<h3 class="anchored" data-anchor-id="escala-de-contribuciones-de-las-observaciones-y-las-variables"><strong>1.5) Escala de contribuciones de las observaciones y las variables</strong></h3>
 </b><p><b style="color:#d95f02;"></b></p>
-<p>La <a href="#fig-fig6">Figura&nbsp;6</a> muestra las contribuciones de cada variable ambiental al pca.</p>
+<p>La <a href="#fig-fig8">Figura&nbsp;8</a> muestra las contribuciones de cada variable ambiental al pca.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca1, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones (Sitios)                </span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">geom.ind =</span> <span class="st">"point"</span>,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill.ind =</span> datos<span class="sc">$</span>Grupo, <span class="at">col.ind =</span> <span class="st">"black"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">pointshape =</span> <span class="dv">21</span>, <span class="at">pointsize =</span> <span class="dv">2</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">addEllipses =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.var =</span> <span class="st">"contrib"</span>,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="st">"RdYlBu"</span>,</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title =</span> <span class="fu">list</span>(<span class="at">fill =</span> <span class="st">"Epocas"</span>, <span class="at">color =</span> <span class="st">"Contrib"</span>,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">alpha =</span> <span class="st">"Contrib"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_biplot</span>(pca1, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones (Sitios)                </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">geom.ind =</span> <span class="st">"point"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill.ind =</span> datos<span class="sc">$</span>Grupo, <span class="at">col.ind =</span> <span class="st">"black"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">pointshape =</span> <span class="dv">21</span>, <span class="at">pointsize =</span> <span class="dv">2</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">palette =</span> <span class="st">"jco"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">addEllipses =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">col.var =</span> <span class="st">"contrib"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">gradient.cols =</span> <span class="st">"RdYlBu"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title =</span> <span class="fu">list</span>(<span class="at">fill =</span> <span class="st">"Grupos"</span>, <span class="at">color =</span> <span class="st">"Contrib"</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="st">"Contrib"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig6" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-fig8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig6-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;6: Contribuciones de las variables ambientales.</figcaption><p></p>
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig8-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;8: Contribuciones de las variables ambientales.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -361,9 +408,9 @@ Cumulative Proportion  0.4865 0.6614 0.8020 0.9302 0.99640 1.0000 1.000e+00</cod
 </b><p><b style="color:#1f78b4;"></b></p>
 <p>Realización pca de del paquete “vegan” para gererar las coordenadas de los sitios y las variables ambientales.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevamente el pca, pero con la librería vegan.</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pca2 <span class="ot">&lt;-</span> <span class="fu">rda</span>(datos[<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>],<span class="at">scale=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">summary</span>(pca2))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevamente el pca, pero con la librería vegan.</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pca2 <span class="ot">&lt;-</span> <span class="fu">rda</span>(datos[<span class="dv">2</span><span class="sc">:</span><span class="dv">8</span>],<span class="at">scale=</span><span class="cn">TRUE</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">summary</span>(pca2))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "species"     "sites"       "call"        "tot.chi"     "unconst.chi"
  [6] "cont"        "scaling"     "digits"      "inertia"     "method"     </code></pre>
@@ -374,10 +421,10 @@ Cumulative Proportion  0.4865 0.6614 0.8020 0.9302 0.99640 1.0000 1.000e+00</cod
 <h3 class="anchored" data-anchor-id="coordenadas-de-los-sitios-y-el-factor-coord.sit"><strong>2.1 Coordenadas de los sitios y el factor “coord.sit”</strong></h3>
 </b><p><b style="color:#d95f02;"></b></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca2)<span class="sc">$</span><span class="st">"sites"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Coordenadas de los sitios</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)      <span class="co"># Crear una columna con nombres de los sitios</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos<span class="sc">$</span>Grupo               <span class="co"># Adicionar columna  por Grupos</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)                             <span class="co"># vista resumida de las coordenadas de sitios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>coord.sit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca2)<span class="sc">$</span><span class="st">"sites"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Coordenadas de los sitios</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>sitio <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.sit)      <span class="co"># Crear una columna con nombres de los sitios</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>coord.sit<span class="sc">$</span>grp <span class="ot">&lt;-</span>  datos<span class="sc">$</span>Grupo               <span class="co"># Adicionar columna  por Grupos</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.sit)                             <span class="co"># vista resumida de las coordenadas de sitios</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 PC1         PC2     sitio grp
 Taganga   -0.8103355  0.29431456   Taganga   A
@@ -394,9 +441,9 @@ Rodadero   0.6186489  1.04517307  Rodadero   B</code></pre>
 <h3 class="anchored" data-anchor-id="coordenadas-de-las-variables-ambientales-coord.amb"><strong>2.2 Coordenadas de las variables ambientales “coord.amb”</strong></h3>
 </b><p><b style="color:#d95f02;"></b></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca2)<span class="sc">$</span><span class="st">"species"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Dos primeros ejes</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>var.amb. <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las variables ambientales</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>coord.amb <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(pca2)<span class="sc">$</span><span class="st">"species"</span>[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])     <span class="co"># Dos primeros ejes</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>coord.amb<span class="sc">$</span>var.amb. <span class="ot">&lt;-</span> <span class="fu">rownames</span>(coord.amb)         <span class="co"># Insertar columna con nombres de las variables ambientales</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coord.amb) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  PC1         PC2   var.amb.
 pH          0.7600032 -0.05945541         pH
@@ -409,44 +456,285 @@ CapaFotica -0.9202592 -0.26095002 CapaFotica</code></pre>
 </div>
 <p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
 </b></section><b style="color:#d95f02;">
-</b><section id="figura-con-de-elipses-por-concavidades---geom_mark_hull" class="level3"><b style="color:#d95f02;">
-<h3 class="anchored" data-anchor-id="figura-con-de-elipses-por-concavidades---geom_mark_hull"><strong>2.3 Figura con de elipses por concavidades - geom_mark_hull</strong></h3>
+</b><section id="ordenación-de-las-localidades" class="level3"><b style="color:#d95f02;">
+<h3 class="anchored" data-anchor-id="ordenación-de-las-localidades">**2.3 Ordenación de las localidades</h3>
 </b><p><b style="color:#d95f02;"></b></p>
-<p>La <a href="#fig-fig7">Figura&nbsp;7</a> muestra la ordenación de las localidades, las variables ambientales y los grupos de localidades.</p>
+<p>La <a href="#fig-fig9">Figura&nbsp;9</a> muestra la ordenación de las localidades.</p>
 <div class="cell" data-fig.format="png">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>(<span class="dv">6</span>,<span class="dv">6</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sitios</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>   <span class="co"># Muestra el cuadro de la figura</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">25</span>))<span class="sc">+</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Variables ambientales </span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2), </span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">type =</span> <span class="st">"closed"</span>),<span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,<span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Factor - grupos de localidades</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit, <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp,</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">colour=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>)  <span class="sc">+</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>,<span class="at">linetype=</span><span class="dv">3</span>,<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>,<span class="at">color=</span><span class="st">"black"</span>),</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill=</span><span class="fu">guide_legend</span>(<span class="at">title=</span><span class="cn">NULL</span>))<span class="sc">+</span></span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()       <span class="co"># Pánel gráfico</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenación de los Sitios</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>  </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Puntos de colores por cada grupo de localidades</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejes del plano cartesiano</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-fig7" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-fig9" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig7-1.svg" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figura&nbsp;7: Ordenación de las localidades, las variables ambientales y los Grupos de localidades.</figcaption><p></p>
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig9-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;9: Ordenación de las localidades.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>Nota</strong> Probar la capa de factor con otras opciones de agrupamiento como esta:</p>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="ordenación-de-las-localidades-y-las-variables-ambientales" class="level3"><b style="color:#d95f02;">
+<h3 class="anchored" data-anchor-id="ordenación-de-las-localidades-y-las-variables-ambientales">**2.4 Ordenación de las localidades y las variables ambientales</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>La <a href="#fig-fig10">Figura&nbsp;10</a> muestra la ordenación de las localidades y las variables ambientales.</p>
+<div class="cell" data-fig.format="png">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()       <span class="co"># Pánel gráfico</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenación de los Sitios</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit, <span class="co"># Base de datos de las localidades</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>  </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Puntos de colores por cada grupo de localidades</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejes del plano cartesiano</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales </span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,  <span class="co"># Base de datos de las ambientales</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Edición de las flechas</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2),  <span class="co"># Coordenadas de las flechas</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,   <span class="co"># Apertura de las flechas</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),   <span class="co"># Tamaño de las puntas de las flechas</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">"closed"</span>),           <span class="co"># Forma de las puntas de las flechas</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span>    <span class="co"># Tipo, color y expesor.</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,       <span class="co"># Nombres de las variables ambientales</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),  </span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour =</span> <span class="st">"blue"</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig10" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig10-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;10: Ordenación de las localidades.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos" class="level3"><b style="color:#d95f02;">
+<h3 class="anchored" data-anchor-id="ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos">**2.4 Ordenación de las localidades, las variables ambientales y los grupos</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<p>La <a href="#fig-fig11">Figura&nbsp;11</a> muestra la ordenación de las localidades, las variables ambientales y grupos.</p>
+<div class="cell" data-fig.format="png">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()       <span class="co"># Pánel gráfico</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenación de los Sitios</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit, <span class="co"># Base de datos de las localidades</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>  </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Puntos de colores por cada grupo de localidades</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejes del plano cartesiano</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales </span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,  <span class="co"># Base de datos de las ambientales</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Edición de las flechas</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2),  <span class="co"># Coordenadas de las flechas</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,   <span class="co"># Apertura de las flechas</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),   <span class="co"># Tamaño de las puntas de las flechas</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">"closed"</span>),           <span class="co"># Forma de las puntas de las flechas</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span>    <span class="co"># Tipo, color y expesor.</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,       <span class="co"># Nombres de las variables ambientales</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),  </span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor - grupos de localidades</span></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_polygon</span>(<span class="at">data=</span>coord.sit,       <span class="co"># Dataframe usado</span></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,        <span class="co"># Ejes del PCA</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fill=</span>grp,           <span class="co"># Color de los bordes de las elipses</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">group=</span>grp),         <span class="co"># Color de los bordes de las elipses</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.30</span>)            <span class="co"># Transparencia</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig11" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig11-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;11: Ordenación de las localidades por cada grupo.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><b style="color:#d95f02;"></b></p><b style="color:#d95f02;">
+</b></section><b style="color:#d95f02;">
+</b><section id="ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos-1" class="level3"><b style="color:#d95f02;">
+<h3 class="anchored" data-anchor-id="ordenación-de-las-localidades-las-variables-ambientales-y-los-grupos-1">**2.5 Ordenación de las localidades, las variables ambientales y los grupos</h3>
+</b><p><b style="color:#d95f02;"></b></p>
+<p><strong>Nota 1:</strong> Probar la edición de los grupos con la siguiente capa:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_polygon</span>(<span class="at">data=</span>coord.sit,<span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,<span class="at">fill=</span>grp,<span class="at">group=</span>grp),<span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit,     <span class="co"># Dataframe usado</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,    <span class="co"># Ejes del PCA</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill=</span>grp,       <span class="co"># Relleno de las elipses</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">colour=</span>grp),    <span class="co"># Color de los bordes de las elipses</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha=</span><span class="fl">0.30</span>) <span class="sc">+</span>       <span class="co"># Transparencia</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La <a href="#fig-fig12">Figura&nbsp;12</a> muestra la ordenación de las localidades, las variables ambientales y grupos.</p>
+<div class="cell" data-fig.format="png">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()       <span class="co"># Pánel gráfico</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenación de los Sitios</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit, <span class="co"># Base de datos de las localidades</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>  </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Puntos de colores por cada grupo de localidades</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejes del plano cartesiano</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales </span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,  <span class="co"># Base de datos de las ambientales</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Edición de las flechas</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2),  <span class="co"># Coordenadas de las flechas</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,   <span class="co"># Apertura de las flechas</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),   <span class="co"># Tamaño de las puntas de las flechas</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">"closed"</span>),           <span class="co"># Forma de las puntas de las flechas</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span>    <span class="co"># Tipo, color y expesor.</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,       <span class="co"># Nombres de las variables ambientales</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),  </span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor - grupos de localidades</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_hull</span>(<span class="at">data=</span>coord.sit,     <span class="co"># Dataframe usado</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">x=</span>PC1,<span class="at">y=</span>PC2,    <span class="co"># Ejes del PCA</span></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill=</span>grp,       <span class="co"># Relleno de las elipses</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>                     <span class="at">colour=</span>grp),    <span class="co"># Color de los bordes de las elipses</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alpha=</span><span class="fl">0.30</span>)     <span class="co"># Transparencia</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig12" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig12-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;12: Ordenación de las localidades por cada grupo.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Nota 2:</strong> Probar la edición de los grupos con la siguiente capa:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_ellipse</span>(<span class="at">data=</span>coord.sit,     <span class="co"># Dataframe usado</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">aes</span>(<span class="at">x=</span>PC1, <span class="at">y=</span>PC2,   <span class="co"># Ejes del PCA</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colour=</span>grp,         <span class="co"># Color de los bordes de las elipses   </span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colour=</span>grp),        <span class="co"># Color de los bordes de las elipses </span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">expand=</span><span class="dv">0</span>, <span class="at">size=</span><span class="fl">0.2</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La <a href="#fig-fig13">Figura&nbsp;13</a> muestra la ordenación de las localidades, las variables ambientales y grupos.</p>
+<div class="cell" data-fig.format="png">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()       <span class="co"># Pánel gráfico</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenación de los Sitios</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit, <span class="co"># Base de datos de las localidades</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>  </span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Puntos de colores por cada grupo de localidades</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejes del plano cartesiano</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales </span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,  <span class="co"># Base de datos de las ambientales</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Edición de las flechas</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2),  <span class="co"># Coordenadas de las flechas</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,   <span class="co"># Apertura de las flechas</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),   <span class="co"># Tamaño de las puntas de las flechas</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">"closed"</span>),           <span class="co"># Forma de las puntas de las flechas</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span>    <span class="co"># Tipo, color y expesor.</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,       <span class="co"># Nombres de las variables ambientales</span></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),  </span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor - grupos de localidades</span></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_ellipse</span>(<span class="at">data=</span>coord.sit,     <span class="co"># Dataframe usado</span></span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">aes</span>(<span class="at">x=</span>PC1, <span class="at">y=</span>PC2,   <span class="co"># Ejes del PCA</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colour=</span>grp,         <span class="co"># Color de los bordes de las elipses   </span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fill=</span>grp),          <span class="co"># Color de los bordes de las elipses </span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>                    <span class="at">expand=</span><span class="dv">0</span>, <span class="at">size=</span><span class="fl">0.2</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig13" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig13-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;13: Ordenación de las localidades por cada grupo.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Nota 3:</strong> Insertar el siguiente tema:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plantilla de la figura</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La <a href="#fig-fig14">Figura&nbsp;14</a> muestra la ordenación de las localidades, las variables ambientales y grupos.</p>
+<div class="cell" data-fig.format="png">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">x11</span>()       <span class="co"># Pánel gráfico</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenación de los Sitios</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.sit, <span class="co"># Base de datos de las localidades</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span><span class="fu">row.names</span>(coord.sit)),</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span>  </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Puntos de colores por cada grupo de localidades</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> coord.sit,<span class="fu">aes</span>(PC1,PC2,<span class="at">colour=</span>grp),<span class="at">size=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejes del plano cartesiano</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">linetype=</span><span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables ambientales </span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> coord.amb,  <span class="co"># Base de datos de las ambientales</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Edición de las flechas</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> PC1, <span class="at">yend =</span> PC2),  <span class="co"># Coordenadas de las flechas</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">angle=</span><span class="fl">22.5</span>,   <span class="co"># Apertura de las flechas</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>),   <span class="co"># Tamaño de las puntas de las flechas</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">"closed"</span>),           <span class="co"># Forma de las puntas de las flechas</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype=</span><span class="dv">1</span>, <span class="at">size=</span><span class="fl">0.6</span>,<span class="at">colour =</span> <span class="st">"blue"</span>)<span class="sc">+</span>    <span class="co"># Tipo, color y expesor.</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_text_repel</span>(<span class="at">data =</span> coord.amb,       <span class="co"># Nombres de las variables ambientales</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(PC1,PC2,<span class="at">label=</span>var.amb.),  </span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colour =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Factor - grupos de localidades</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mark_ellipse</span>(<span class="at">data=</span>coord.sit,     <span class="co"># Dataframe usado</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">aes</span>(<span class="at">x=</span>PC1, <span class="at">y=</span>PC2,   <span class="co"># Ejes del PCA</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">colour=</span>grp,         <span class="co"># Color de los bordes de las elipses   </span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fill=</span>grp),          <span class="co"># Color de los bordes de las elipses </span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>                    <span class="at">expand=</span><span class="dv">0</span>, <span class="at">size=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Plantilla de la figura</span></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid=</span><span class="fu">element_blank</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-fig14" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Taller9.1.pca.marino_files/figure-html/fig-fig14-1.svg" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figura&nbsp;14: Ordenación de las localidades por cada grupo.</figcaption><p></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 </section>
