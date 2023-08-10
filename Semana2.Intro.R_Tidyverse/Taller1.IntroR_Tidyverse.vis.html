@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-ES" xml:lang="es-ES"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Javier Rodríguez_Barrios - Universidad del Magdalena">
+<meta name="dcterms.date" content="2023-08-10">
+
+<title>Taller 1. Introducción al RStudio y al Tidyverse</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Taller1.IntroR_Tidyverse.vis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Taller1.IntroR_Tidyverse.vis_files/libs/quarto-html/quarto.js"></script>
+<script src="Taller1.IntroR_Tidyverse.vis_files/libs/quarto-html/popper.min.js"></script>
+<script src="Taller1.IntroR_Tidyverse.vis_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Taller1.IntroR_Tidyverse.vis_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Taller1.IntroR_Tidyverse.vis_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Taller1.IntroR_Tidyverse.vis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Taller1.IntroR_Tidyverse.vis_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Taller1.IntroR_Tidyverse.vis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Taller1.IntroR_Tidyverse.vis_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#resumen-de-las-actividades" id="toc-resumen-de-las-actividades" class="nav-link active" data-scroll-target="#resumen-de-las-actividades">Resumen de las actividades</a></li>
+  <li><a href="#actividad-1.-operaciones-básicas-en-rstudio" id="toc-actividad-1.-operaciones-básicas-en-rstudio" class="nav-link" data-scroll-target="#actividad-1.-operaciones-básicas-en-rstudio">Actividad 1. Operaciones básicas en RStudio</a></li>
+  <li><a href="#actividad-2.-lenguaje-tidyyverse" id="toc-actividad-2.-lenguaje-tidyyverse" class="nav-link" data-scroll-target="#actividad-2.-lenguaje-tidyyverse">Actividad 2. Lenguaje Tidyyverse</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 1. Introducción al RStudio y al Tidyverse</h1>
+<p class="subtitle lead">Asignatura Visualización Gráfica en R</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Javier Rodríguez_Barrios - Universidad del Magdalena </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 10, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b><section id="resumen-de-las-actividades" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="resumen-de-las-actividades">Resumen de las actividades</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://t3.ftcdn.net/jpg/06/00/51/46/240_F_600514686_dt6eLLWD2I5BkdmzYBl8yILMerZLijOZ.jpg" width="70%"></p>
+<p>[<n style="color:#1f78b4;"> Imágen tomada de <a href="https://stock.adobe.com/co/contributor/200845538/sommersby?load_type=author&amp;prev_url=detail">sommersby</a> </n>]</p>
+<p>El presente taller tiene como objetivo, realizar un entrenamiento básico, sobre los aspectos más relevantes en el manejo del programa RStudio, el cual se encuentra alojado en el siguiente enlace <a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a>.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/RStudio_logo_flat.svg/2560px-RStudio_logo_flat.svg.png" width="40%"></p>
+<p>Se utilizará como referente al capitulo 2 del libro Análisis de datos ecológicos y ambientales (Rodríguez-Barrios, J. 2023), alojado en el siguiente enlace <a href="https://www-ebooks7-24-com.biblioteca.unimagdalena.edu.co/?il=26489&amp;pg=23">Enlace_Libro</a></p>
+<p><img src="https://m.media-amazon.com/images/I/51ooXRKQSrL._SY344_BO1,204,203,200_QL70_ML2_.jpg" class="img-fluid" style="width:30.0%"></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="actividad-1.-operaciones-básicas-en-rstudio" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="actividad-1.-operaciones-básicas-en-rstudio">Actividad 1. Operaciones básicas en RStudio</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://rstudio.com/assets/img/og/rstudio-og-fb-1.jpg" width="60%"></p>
+<ol type="1">
+<li><p>Descargar el script de RMarkDown (rmd) titulado <strong>“Taller1.Rmd”</strong> en el siguiente enlace <a href="https://javier-2712.github.io/Visualizacion/Semana2.Intro.R_Tidyverse/Taller1.Rmd.rmd">Taller1.Rmd</a>.</p></li>
+<li><p>Crear una <strong>carpeta</strong> en su computador titulada <strong>“Taller2.1_IntroRStudio”</strong> y guardar el archivo descargado junto con el resto de materiales que se describen a continuación.</p></li>
+<li><p>Abrir el archivo <strong>“Taller1.Rmd”</strong> y abrir el siguiente enlace, correspondiente al ejercicio a realizar <a href="https://slides.com/d/1WhbP9g/live">Taller1.IntroRStudio</a>.</p></li>
+<li><p>Revisar los siguientes enlaces complementarios:</p></li>
+</ol>
+<p><a href="https://javier-2712.github.io/Multivariados_MSc/Taller1.Intro.html">Operaciones básicas en RStudio</a></p>
+<p><a href="https://javier-2712.github.io/Libro_andea/2.Intro_RStudio/Cap%C3%ADtulo2.html">Scripts del capítulo 2 del libro (Rodríuez-Barrios, J. 2023)</a></p>
+<p><a href="miriamll.github.io/Curso_CIAD/Clase1#1">Diapositivas Intro a R</a></p>
+<p><a href="miriamll.github.io/Curso_CIAD/Clase3Parte1#1">Diapositivas Operaciones en R</a></p>
+<p><a href="posit.co/resources/cheatsheets/">Trucos en R</a></p>
+<p><a href="rpubs.com/odenipinedo/introduction-to-R">RPubs-Intro</a></p>
+<p><a href="rpubs.com/odenipinedo/intermediate-R">RPubs-Intermed</a></p>
+<p><b style="color:#1f78b4;"></b></p><b style="color:#1f78b4;">
+</b></section><b style="color:#1f78b4;">
+</b><section id="actividad-2.-lenguaje-tidyyverse" class="level2"><b style="color:#1f78b4;">
+<h2 class="anchored" data-anchor-id="actividad-2.-lenguaje-tidyyverse">Actividad 2. Lenguaje Tidyyverse</h2>
+</b><p><b style="color:#1f78b4;"></b></p>
+<p><img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2019/05/ggplot_hive.jpg" width="60%"></p>
+<p>Tidyverse es un conjunto de librerías o paquetes de R, diseñados especialmente para la ciencia de datos, permitiendo realizar procesos de visualización y modelación de datos, entre otros procesos. Las librerías en mención comparten estructuras comunes, lo cual los hace más fácil de entender, aunque se aleja considerablemente del esquema tradicional de códigos en R. Con el siguiente comando se pueden visualizar alrededor de 30 paquetes disponibles <code>tidyverse_packages()</code>.</p>
+<ol type="1">
+<li><p>Continuar en el el archivo <strong>“Taller1.Rmd”</strong> y en las diapositivas <a href="https://slides.com/d/1WhbP9g/live">Taller1.IntroRStudio</a>.</p></li>
+<li><p>Enlaces complementarios</p></li>
+</ol>
+<p><a href="https://javier-2712.github.io/Visualizacion/Semana2.Intro.R_Tidyverse/Taller_tidyverse.pdf">Taller Intro a Tidyverse J. Rodríguez</a> Este es un material suplementario para la ralización del taller en clase.</p>
+<p><a href="gonzalezgouveia.com/que-es-tidyverse-8-paquetes-para-ciencia-de-datos/">Videos de Tidyverse</a></p>
+<p><a href="dominicroye.github.io/en/2020/a-very-short-introduction-to-tidyverse/#table-and-vector-manipulation">Introducción al Tidyverse</a></p>
+<p><a href="dominicroye.github.io/en/2020/a-very-short-introduction-to-tidyverse/#table-and-vector-manipulation">Introducción al Tidyverse</a></p>
+<p><a href="www.r-bloggers.com/2020/06/a-very-short-introduction-to-tidyverse/">Introducción al Tidyverse</a></p>
+<p><a href="derek-corcoran-barrios.github.io/Libro/_book/tidydata.html">El Tidyverso y tidyr</a></p>
+<p><a href="bookdown.org/content/3515/tidydata.html#tidy-data">Curso de Tidyverse</a></p>
+<p><a href="www.r-bloggers.com/2023/02/10-tidyverse-functions-that-might-save-your-day/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">10 funciones de Tidyverse</a></p>
+<p><a href="bookdown.org/content/3515/tidyverso.html">Manipulación de datos</a></p>
+<p><a href="www.r-bloggers.com/2022/07/how-to-standardize-data-in-r/?utm_source=phpList&amp;utm_medium=email&amp;utm_campaign=R-bloggers-daily&amp;utm_content=HTML">Estandarización de variables</a></p>
+<p><a href="www.r-bloggers.com/2022/07/how-to-apply-a-transformation-to-multiple-columns-in-r/">Transformaciones de variables</a></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
